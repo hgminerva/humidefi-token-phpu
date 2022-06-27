@@ -1,6 +1,6 @@
 {
   "source": {
-    "hash": "0xbe857ec58e70acf0ad2de8f61f0a235a42d5adecb9ef9396d388186998a32e44",
+    "hash": "0xfd4c77fe1dde2daf69be1e1e5c538065d6e3022944086b92b2d38a23afb010e4",
     "language": "ink! 3.3.0",
     "compiler": "rustc 1.63.0-nightly"
   },
@@ -17,12 +17,30 @@
         {
           "args": [
             {
+              "label": "name",
+              "type": {
+                "displayName": [
+                  "String"
+                ],
+                "type": 9
+              }
+            },
+            {
+              "label": "symbol",
+              "type": {
+                "displayName": [
+                  "String"
+                ],
+                "type": 9
+              }
+            },
+            {
               "label": "initial_supply",
               "type": {
                 "displayName": [
                   "Balance"
                 ],
-                "type": 0
+                "type": 1
               }
             }
           ],
@@ -46,7 +64,7 @@
                 "displayName": [
                   "Option"
                 ],
-                "type": 11
+                "type": 12
               }
             },
             {
@@ -57,7 +75,7 @@
                 "displayName": [
                   "Option"
                 ],
-                "type": 11
+                "type": 12
               }
             },
             {
@@ -68,7 +86,7 @@
                 "displayName": [
                   "Balance"
                 ],
-                "type": 0
+                "type": 1
               }
             }
           ],
@@ -87,7 +105,7 @@
                 "displayName": [
                   "AccountId"
                 ],
-                "type": 2
+                "type": 3
               }
             },
             {
@@ -98,7 +116,7 @@
                 "displayName": [
                   "AccountId"
                 ],
-                "type": 2
+                "type": 3
               }
             },
             {
@@ -109,7 +127,7 @@
                 "displayName": [
                   "Balance"
                 ],
-                "type": 0
+                "type": 1
               }
             }
           ],
@@ -133,7 +151,7 @@
             "displayName": [
               "Balance"
             ],
-            "type": 0
+            "type": 1
           },
           "selector": "0xdb6375a8"
         },
@@ -145,7 +163,7 @@
                 "displayName": [
                   "AccountId"
                 ],
-                "type": 2
+                "type": 3
               }
             }
           ],
@@ -161,7 +179,7 @@
             "displayName": [
               "Balance"
             ],
-            "type": 0
+            "type": 1
           },
           "selector": "0x0f755a56"
         },
@@ -173,7 +191,7 @@
                 "displayName": [
                   "AccountId"
                 ],
-                "type": 2
+                "type": 3
               }
             },
             {
@@ -182,7 +200,7 @@
                 "displayName": [
                   "AccountId"
                 ],
-                "type": 2
+                "type": 3
               }
             }
           ],
@@ -198,7 +216,7 @@
             "displayName": [
               "Balance"
             ],
-            "type": 0
+            "type": 1
           },
           "selector": "0x6a00165e"
         },
@@ -210,7 +228,7 @@
                 "displayName": [
                   "AccountId"
                 ],
-                "type": 2
+                "type": 3
               }
             },
             {
@@ -219,7 +237,7 @@
                 "displayName": [
                   "Balance"
                 ],
-                "type": 0
+                "type": 1
               }
             }
           ],
@@ -240,7 +258,7 @@
             "displayName": [
               "Result"
             ],
-            "type": 8
+            "type": 10
           },
           "selector": "0x84a15da1"
         },
@@ -252,7 +270,7 @@
                 "displayName": [
                   "AccountId"
                 ],
-                "type": 2
+                "type": 3
               }
             },
             {
@@ -261,7 +279,7 @@
                 "displayName": [
                   "Balance"
                 ],
-                "type": 0
+                "type": 1
               }
             }
           ],
@@ -280,7 +298,7 @@
             "displayName": [
               "Result"
             ],
-            "type": 8
+            "type": 10
           },
           "selector": "0x681266a0"
         },
@@ -292,7 +310,7 @@
                 "displayName": [
                   "AccountId"
                 ],
-                "type": 2
+                "type": 3
               }
             },
             {
@@ -301,7 +319,7 @@
                 "displayName": [
                   "AccountId"
                 ],
-                "type": 2
+                "type": 3
               }
             },
             {
@@ -310,7 +328,7 @@
                 "displayName": [
                   "Balance"
                 ],
-                "type": 0
+                "type": 1
               }
             }
           ],
@@ -337,9 +355,57 @@
             "displayName": [
               "Result"
             ],
-            "type": 8
+            "type": 10
           },
           "selector": "0x0b396f18"
+        },
+        {
+          "args": [],
+          "docs": [
+            " Returns the token name."
+          ],
+          "label": "name",
+          "mutates": false,
+          "payable": false,
+          "returnType": {
+            "displayName": [
+              "String"
+            ],
+            "type": 9
+          },
+          "selector": "0x3adaf70d"
+        },
+        {
+          "args": [],
+          "docs": [
+            " Returns the token symbol."
+          ],
+          "label": "symbol",
+          "mutates": false,
+          "payable": false,
+          "returnType": {
+            "displayName": [
+              "String"
+            ],
+            "type": 9
+          },
+          "selector": "0x9bd1933e"
+        },
+        {
+          "args": [],
+          "docs": [
+            " Returns the decimal places of the token."
+          ],
+          "label": "decimals",
+          "mutates": false,
+          "payable": false,
+          "returnType": {
+            "displayName": [
+              "u8"
+            ],
+            "type": 5
+          },
+          "selector": "0x81c09d87"
         }
       ]
     },
@@ -353,7 +419,7 @@
                 "ty": 0
               }
             },
-            "name": "total_supply"
+            "name": "token_symbol"
           },
           {
             "layout": {
@@ -362,16 +428,43 @@
                 "ty": 1
               }
             },
-            "name": "balances"
+            "name": "total_supply"
           },
           {
             "layout": {
               "cell": {
                 "key": "0x0200000000000000000000000000000000000000000000000000000000000000",
-                "ty": 6
+                "ty": 2
+              }
+            },
+            "name": "balances"
+          },
+          {
+            "layout": {
+              "cell": {
+                "key": "0x0300000000000000000000000000000000000000000000000000000000000000",
+                "ty": 7
               }
             },
             "name": "allowances"
+          },
+          {
+            "layout": {
+              "cell": {
+                "key": "0x0400000000000000000000000000000000000000000000000000000000000000",
+                "ty": 9
+              }
+            },
+            "name": "name"
+          },
+          {
+            "layout": {
+              "cell": {
+                "key": "0x0500000000000000000000000000000000000000000000000000000000000000",
+                "ty": 9
+              }
+            },
+            "name": "symbol"
           }
         ]
       }
@@ -381,7 +474,7 @@
         "id": 0,
         "type": {
           "def": {
-            "primitive": "u128"
+            "tuple": []
           }
         }
       },
@@ -389,11 +482,19 @@
         "id": 1,
         "type": {
           "def": {
+            "primitive": "u128"
+          }
+        }
+      },
+      {
+        "id": 2,
+        "type": {
+          "def": {
             "composite": {
               "fields": [
                 {
                   "name": "offset_key",
-                  "type": 5,
+                  "type": 6,
                   "typeName": "Key"
                 }
               ]
@@ -402,11 +503,11 @@
           "params": [
             {
               "name": "K",
-              "type": 2
+              "type": 3
             },
             {
               "name": "V",
-              "type": 0
+              "type": 1
             }
           ],
           "path": [
@@ -418,13 +519,13 @@
         }
       },
       {
-        "id": 2,
+        "id": 3,
         "type": {
           "def": {
             "composite": {
               "fields": [
                 {
-                  "type": 3,
+                  "type": 4,
                   "typeName": "[u8; 32]"
                 }
               ]
@@ -438,21 +539,13 @@
         }
       },
       {
-        "id": 3,
+        "id": 4,
         "type": {
           "def": {
             "array": {
               "len": 32,
-              "type": 4
+              "type": 5
             }
-          }
-        }
-      },
-      {
-        "id": 4,
-        "type": {
-          "def": {
-            "primitive": "u8"
           }
         }
       },
@@ -460,10 +553,18 @@
         "id": 5,
         "type": {
           "def": {
+            "primitive": "u8"
+          }
+        }
+      },
+      {
+        "id": 6,
+        "type": {
+          "def": {
             "composite": {
               "fields": [
                 {
-                  "type": 3,
+                  "type": 4,
                   "typeName": "[u8; 32]"
                 }
               ]
@@ -476,14 +577,14 @@
         }
       },
       {
-        "id": 6,
+        "id": 7,
         "type": {
           "def": {
             "composite": {
               "fields": [
                 {
                   "name": "offset_key",
-                  "type": 5,
+                  "type": 6,
                   "typeName": "Key"
                 }
               ]
@@ -492,11 +593,11 @@
           "params": [
             {
               "name": "K",
-              "type": 7
+              "type": 8
             },
             {
               "name": "V",
-              "type": 0
+              "type": 1
             }
           ],
           "path": [
@@ -508,18 +609,26 @@
         }
       },
       {
-        "id": 7,
+        "id": 8,
         "type": {
           "def": {
             "tuple": [
-              2,
-              2
+              3,
+              3
             ]
           }
         }
       },
       {
-        "id": 8,
+        "id": 9,
+        "type": {
+          "def": {
+            "primitive": "str"
+          }
+        }
+      },
+      {
+        "id": 10,
         "type": {
           "def": {
             "variant": {
@@ -527,7 +636,7 @@
                 {
                   "fields": [
                     {
-                      "type": 9
+                      "type": 0
                     }
                   ],
                   "index": 0,
@@ -536,7 +645,7 @@
                 {
                   "fields": [
                     {
-                      "type": 10
+                      "type": 11
                     }
                   ],
                   "index": 1,
@@ -548,11 +657,11 @@
           "params": [
             {
               "name": "T",
-              "type": 9
+              "type": 0
             },
             {
               "name": "E",
-              "type": 10
+              "type": 11
             }
           ],
           "path": [
@@ -561,15 +670,7 @@
         }
       },
       {
-        "id": 9,
-        "type": {
-          "def": {
-            "tuple": []
-          }
-        }
-      },
-      {
-        "id": 10,
+        "id": 11,
         "type": {
           "def": {
             "variant": {
@@ -593,7 +694,7 @@
         }
       },
       {
-        "id": 11,
+        "id": 12,
         "type": {
           "def": {
             "variant": {
@@ -605,7 +706,7 @@
                 {
                   "fields": [
                     {
-                      "type": 2
+                      "type": 3
                     }
                   ],
                   "index": 1,
@@ -617,7 +718,7 @@
           "params": [
             {
               "name": "T",
-              "type": 2
+              "type": 3
             }
           ],
           "path": [

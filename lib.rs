@@ -4,6 +4,8 @@ use ink_lang as ink;
 
 #[ink::contract]
 mod erc20 {
+    use ink_prelude::string::String;
+
     use ink_storage::{
         traits::SpreadAllocate,
         Mapping,
@@ -13,6 +15,7 @@ mod erc20 {
     #[ink(storage)]
     #[derive(SpreadAllocate)]
     pub struct Erc20 {
+        token_symbol: (),
         /// Total token supply.
         total_supply: Balance,
         /// Mapping from owner to number of owned token.
@@ -20,6 +23,10 @@ mod erc20 {
         /// Mapping of the token amount which an account is allowed to withdraw
         /// from another account.
         allowances: Mapping<(AccountId, AccountId), Balance>,
+        /// Token name
+       name: String,
+       /// Token symbol (ticker)
+       symbol:String,
     }
 
     /// Event emitted when a token transfer occurs.
@@ -59,10 +66,12 @@ mod erc20 {
     impl Erc20 {
         /// Creates a new ERC-20 contract with the specified initial supply.
         #[ink(constructor)]
-        pub fn new(initial_supply: Balance) -> Self {
+        pub fn new(name: String, symbol: String, initial_supply: Balance) -> Self {
             // This call is required in order to correctly initialize the
             // `Mapping`s of our contract.
-            ink_lang::utils::initialize_contract(|contract| {
+            ink_lang::utils::initialize_contract(|contract: &mut Self| {
+                contract.symbol = symbol;
+                contract.name = name;
                 Self::new_init(contract, initial_supply)
             })
         }
@@ -222,6 +231,26 @@ mod erc20 {
         }
     }
 
+    impl Erc20 {
+        /// Returns the token name.
+        #[ink(message)]
+        pub fn name(&self) -> String {
+            self.name.clone()
+        }
+ 
+        /// Returns the token symbol.
+        #[ink(message)]
+        pub fn symbol(&self) -> String {
+            self.symbol.clone()
+        }
+ 
+        /// Returns the decimal places of the token.
+        #[ink(message)]
+        pub fn decimals(&self) -> u8 {
+            18
+        }
+    }
+
     #[cfg(test)]
     mod tests {
         use super::*;
@@ -285,7 +314,7 @@ mod erc20 {
         #[ink::test]
         fn new_works() {
             // Constructor works.
-            let _erc20 = Erc20::new(100);
+            let _erc20 = Erc20::new("PHPU Stable Coin".to_string(),"PHPU".to_string(),100);
 
             // Transfer event triggered during initial construction.
             let emitted_events = ink_env::test::recorded_events().collect::<Vec<_>>();
@@ -303,7 +332,7 @@ mod erc20 {
         #[ink::test]
         fn total_supply_works() {
             // Constructor works.
-            let erc20 = Erc20::new(100);
+            let erc20 = Erc20::new("PHPU Stable Coin".to_string(),"PHPU".to_string(),100);
             // Transfer event triggered during initial construction.
             let emitted_events = ink_env::test::recorded_events().collect::<Vec<_>>();
             assert_transfer_event(
@@ -320,7 +349,7 @@ mod erc20 {
         #[ink::test]
         fn balance_of_works() {
             // Constructor works
-            let erc20 = Erc20::new(100);
+            let erc20 = Erc20::new("PHPU Stable Coin".to_string(),"PHPU".to_string(),100);
             // Transfer event triggered during initial construction
             let emitted_events = ink_env::test::recorded_events().collect::<Vec<_>>();
             assert_transfer_event(
@@ -340,7 +369,7 @@ mod erc20 {
         #[ink::test]
         fn transfer_works() {
             // Constructor works.
-            let mut erc20 = Erc20::new(100);
+            let mut erc20 = Erc20::new("PHPU Stable Coin".to_string(),"PHPU".to_string(),100);
             // Transfer event triggered during initial construction.
             let accounts =
                 ink_env::test::default_accounts::<ink_env::DefaultEnvironment>();
@@ -372,7 +401,7 @@ mod erc20 {
         #[ink::test]
         fn invalid_transfer_should_fail() {
             // Constructor works.
-            let mut erc20 = Erc20::new(100);
+            let mut erc20 = Erc20::new("PHPU Stable Coin".to_string(),"PHPU".to_string(),100);
             let accounts =
                 ink_env::test::default_accounts::<ink_env::DefaultEnvironment>();
 
@@ -407,7 +436,7 @@ mod erc20 {
         #[ink::test]
         fn transfer_from_works() {
             // Constructor works.
-            let mut erc20 = Erc20::new(100);
+            let mut erc20 = Erc20::new("PHPU Stable Coin".to_string(),"PHPU".to_string(),100);
             // Transfer event triggered during initial construction.
             let accounts =
                 ink_env::test::default_accounts::<ink_env::DefaultEnvironment>();
@@ -456,7 +485,7 @@ mod erc20 {
 
         #[ink::test]
         fn allowance_must_not_change_on_failed_transfer() {
-            let mut erc20 = Erc20::new(100);
+            let mut erc20 = Erc20::new("PHPU Stable Coin".to_string(),"PHPU".to_string(),100);
             let accounts =
                 ink_env::test::default_accounts::<ink_env::DefaultEnvironment>();
 
@@ -538,5 +567,5 @@ mod erc20 {
             result
         }
     }
-    
+
 }
