@@ -1,5 +1,5 @@
-/home/hopee0325/humidefi/erc20/target/ink/wasm32-unknown-unknown/release/deps/erc20.wasm: /home/hopee0325/humidefi/erc20/lib.rs
+/Users/hgminerva/Projects/humidefi/humidefi-token-phpu/target/ink/wasm32-unknown-unknown/release/deps/erc20.wasm: /Users/hgminerva/Projects/humidefi/humidefi-token-phpu/lib.rs
 
-/home/hopee0325/humidefi/erc20/target/ink/wasm32-unknown-unknown/release/deps/erc20.d: /home/hopee0325/humidefi/erc20/lib.rs
+/Users/hgminerva/Projects/humidefi/humidefi-token-phpu/target/ink/wasm32-unknown-unknown/release/deps/erc20.d: /Users/hgminerva/Projects/humidefi/humidefi-token-phpu/lib.rs
 
-/home/hopee0325/humidefi/erc20/lib.rs:
+/Users/hgminerva/Projects/humidefi/humidefi-token-phpu/lib.rs:

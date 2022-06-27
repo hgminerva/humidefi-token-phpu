@@ -1,2 +1,0 @@
-cargo:rustc-env=TYPENUM_BUILD_CONSTS=/home/hopee0325/humidefi/erc20/target/ink/release/build/typenum-398017e094ee7987/out/consts.rs
-cargo:rustc-env=TYPENUM_BUILD_OP=/home/hopee0325/humidefi/erc20/target/ink/release/build/typenum-398017e094ee7987/out/op.rs
