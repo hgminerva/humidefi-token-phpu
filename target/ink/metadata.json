@@ -1,6 +1,6 @@
 {
   "source": {
-    "hash": "0xfd4c77fe1dde2daf69be1e1e5c538065d6e3022944086b92b2d38a23afb010e4",
+    "hash": "0x013fc5dbd0a501a71177dbee5207ebe5dd3fc10ea9722f21f3b48df22df447d8",
     "language": "ink! 3.3.0",
     "compiler": "rustc 1.63.0-nightly"
   },
@@ -358,6 +358,39 @@
             "type": 10
           },
           "selector": "0x0b396f18"
+        },
+        {
+          "args": [
+            {
+              "label": "minted_value",
+              "type": {
+                "displayName": [
+                  "Balance"
+                ],
+                "type": 1
+              }
+            }
+          ],
+          "docs": [
+            " Mint `value` amount of tokens from the caller's account to account `to`.",
+            "",
+            " On success a `Mint` event is emitted.",
+            "",
+            " # Errors",
+            "",
+            " Returns  error if there are not enough tokens on",
+            " the caller's account balance."
+          ],
+          "label": "mint",
+          "mutates": true,
+          "payable": false,
+          "returnType": {
+            "displayName": [
+              "Result"
+            ],
+            "type": 10
+          },
+          "selector": "0xcfdd9aa2"
         },
         {
           "args": [],

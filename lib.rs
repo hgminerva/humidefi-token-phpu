@@ -11,6 +11,9 @@ mod erc20 {
         Mapping,
     };
 
+    // Modified by: HGMinerva - June 27, 2022
+    // Reference: https://stackoverflow.com/questions/71352753/rust-ink-unable-to-use-imported-module-due-an-unresolved-import-error
+
     /// A simple ERC-20 contract.
     #[ink(storage)]
     #[derive(SpreadAllocate)]
@@ -229,6 +232,41 @@ mod erc20 {
             });
             Ok(())
         }
+
+        /// Mint `value` amount of tokens from the caller's account.
+        ///
+        /// On success a `Mint` event is emitted.
+        ///
+        /// # Errors
+        ///
+        /// Returns  error if there are not enough tokens on
+        /// the caller's account balance.
+        #[ink(message)]
+        pub fn mint(&mut self, minted_value: Balance) -> Result<()> {
+            let caller = Self::env().caller();
+            self.balances.insert(&caller, &minted_value);
+            self.total_supply = self.total_supply + minted_value;
+            Self::env().emit_event(Transfer {
+                from: None,
+                to: Some(caller),
+                value: minted_value,
+            });
+            Ok(())
+        }
+
+        /// Burn `value` amount of tokens from the caller's account.
+        ///
+        /// On success a `Burn` event is emitted.
+        ///
+        /// # Errors
+        ///
+        /// Returns  error if there are not enough tokens on
+        /// the caller's account balance.
+        #[ink(message)]
+        pub fn burn(&mut self, burn_value: Balance) -> Result<()> {
+            Ok(())
+        }
+
     }
 
     impl Erc20 {
